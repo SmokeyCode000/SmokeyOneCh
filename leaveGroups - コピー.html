@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SmokeyOneCh のポートフォリオ。DiscordツールやWebアプリケーション、Node.jsでの開発作品を紹介。" />
+  <meta name="keywords" content="SmokeyOneCh, Discordツール, Web開発, Node.js, ポートフォリオ, GitHub, プロフィール, 自作ツール" />
+  <title>Smokey | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #2f3136;
+      color: #dcddde;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+    }
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #444;
+      margin-right: 1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.2em;
+      color: #7289da;
+      animation: fadeInDown 1s ease-out forwards;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      color: #b9bbbe;
+      margin-top: -0.5rem;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease-out forwards;
+    }
+    h2 {
+      font-size: 1.5rem;
+      color: #00bcd4;
+      margin-top: 2rem;
+      border-bottom: 1px solid #444;
+      padding-bottom: 0.3rem;
+      animation: fadeInRight 1s ease-out forwards;
+    }
+    .fade {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    a {
+      color: #4dd0e1;
+      text-decoration: none;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    td, th {
+      border: 1px solid #444;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    .button {
+      background-color: #7289da;
+      color: white;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .button:hover {
+      background-color: #5a6e98;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.2rem; }
+      .avatar { width: 100px; height: 100px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://cdn.discordapp.com/avatars/1236255707926368328/7e4d41683856aaabc1f10d23841fad34.webp" alt="icon" class="avatar" />
+      <h1>SmokeyOneCh</h1>
+    </div>
+    <p>よくツールとか作ってます、<strong>smokey</strong>です。</p>
+    <p>Node.js / Discord / Webを中心に、便利なものを作ってます。</p>
+
+    <h2>プロフィール</h2>
+    <ul>
+      <li><strong>Discord：</strong> smokeyonech</li>
+      <li><strong>Web：</strong> <a href="https://smokeycode000.github.io/home/" target="_blank">Smokey's Tools</a></li>
+    </ul>
+
+    <h2>🛠️ Web系ツールアクセス</h2>
+    <table>
+      <tr><th>ツール名</th><th>説明</th><th>リンク</th></tr>
+      <tr><td>leaveGroups</td><td>tokenを使用して、指定したグループから退出します。</td><td><a href="https://smokeycode000.github.io/leaveGroups/" target="_blank">アクセス</a></td></tr>
+      <tr><td>AesEncryptor</td><td>ファイルをAES-256-CBC方式で暗号化・復号できます。</td><td><a href="https://smokeycode000.github.io/AesEncryptor/" target="_blank">アクセス</a></td></tr>
+    </table>
+
+    <h2>📩 ページ作成依頼</h2>
+    <p class="fade">以下のようなプロフィールページ制作も受け付けています：<br>
+    <a href="https://smokeycode000.github.io/profile/" target="_blank">https://smokeycode000.github.io/profile/</a></p>
+    <p class="fade">依頼は Discord（smokeyonech）まで！</p>
+  </div>
+
+  <script>
+    const faders = document.querySelectorAll('.fade');
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+</body>
+</html>
